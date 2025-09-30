@@ -1,8 +1,14 @@
 import { ui, defaultLang, showDefaultLang } from './ui';
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
+  const base = import.meta.env.BASE_URL.replace(/^\/|\/$/g, '');
+  const parts = url.pathname.split('/').filter(Boolean);
+
+  const langIndex = base ? 1 : 0;
+
+  const lang = parts[langIndex];
+  if (lang && lang in ui) return lang as keyof typeof ui;
+
   return defaultLang;
 }
 
@@ -13,7 +19,8 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 
 export function useTranslatedPath(lang: keyof typeof ui) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   return function translatePath(path: string, l: string = lang) {
-    return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
+    return !showDefaultLang && l === defaultLang ? `${base}${path}` : `${base}/${l}${path}`;
   };
 }
