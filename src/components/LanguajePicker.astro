@@ -2,7 +2,7 @@
 import { getLangFromUrl } from '@/i18n/utils';
 const currentPath = Astro.url.pathname;
 const lang = getLangFromUrl(Astro.url);
-const basePath = currentPath.replace(`/${lang}`, '');
+const basePath = currentPath.replace(`/portfolio/${lang}`, '');
 ---
 
 <div class='h-7 w-36 cursor-pointer flex justify-end' onclick="document.getElementById('sel').click() ">

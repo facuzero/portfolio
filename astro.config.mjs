@@ -11,7 +11,7 @@ export default defineConfig({
     defaultLocale: 'es',
     locales: ['es', 'en'],
   },
-  site: 'https://facuzero.github.io',
+  site: 'https://facuzero.github.io/portfolio/es',
   base: '/',
   integrations: [],
 });
