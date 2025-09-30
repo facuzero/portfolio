@@ -1,0 +1,30 @@
+---
+import LanguajePicker from './LanguajePicker.astro';
+import { Image } from 'astro:assets';
+---
+
+<header class='m-2 p-2 fixed backdrop-blur-sm rounded-2xl w-full z-50 mt-12'>
+  <div class='flex justify-around'>
+    <div class='flex'>
+      <Image
+        inferSize={true}
+        loading='eager'
+        class='rounded-full w-12 h-12 mr-4'
+        src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FC4E03AQFUtWKOn67htw%2Fprofile-displayphoto-shrink_200_200%2Fprofile-displayphoto-shrink_200_200%2F0%2F1634309529096%3Fe%3D2147483647%26v%3Dbeta%26t%3D_-cQbsxgTCLOSTXyS4iHFfgLKCdwRNmK2kfDe7Tdk68&f=1&nofb=1&ipt=d3afd5ff7d44a32ce5dbde1d43e686fd03ed6c25c128ca09a973fe8d57a3e97a'
+        alt='Imagen de perfilongis'
+      />
+      <h1 class='text-2xl pochita'>Facundo Diaz | Fullstack Developer</h1>
+    </div>
+
+    <div class='w-1/2'>
+      <nav class='flex justify-between pochita text-2xl'>
+        <a href='#'>Home</a>
+        <a href='#about'>About</a>
+        <a href='#skills'>Skills</a>
+        <a href='#projects'>Projects</a>
+        <a href='#contact'>Contact</a>
+        <LanguajePicker />
+      </nav>
+    </div>
+  </div>
+</header>

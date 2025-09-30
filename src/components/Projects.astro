@@ -1,0 +1,140 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { Image } from 'astro:assets';
+import calu from 'public/images/calu.png';
+import sucurapp from 'public/images/sucurapp.png';
+import lavariso from 'public/images/lavariso.png';
+import backend from 'public/images/backend.jpg';
+import nearvet from 'public/images/nearvet.webp';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const technologies = {
+  react: {
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg',
+    alt: 'React',
+    title: 'React',
+  },
+  firebase: {
+    src: 'https://img.icons8.com/?size=100&id=62452&format=png&color=000000',
+    alt: 'Firebase',
+    title: 'Firebase',
+  },
+  mysql: {
+    src: 'https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000',
+    alt: 'MySQL',
+    title: 'MySQL',
+  },
+  postgresql: {
+    src: 'https://img.icons8.com/?size=100&id=38561&format=png&color=000000',
+    alt: 'PostgreSQL',
+    title: 'PostgreSQL',
+  },
+  nodejs: {
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg',
+    alt: 'Node.js',
+    title: 'Node.js',
+  },
+  express: {
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg',
+    alt: 'Express.js',
+    title: 'Express.js',
+  },
+  nestjs: {
+    src: 'https://img.icons8.com/?size=100&id=9ESZMOeUioJS&format=png&color=000000',
+    alt: 'NestJS',
+    title: 'NestJS',
+  },
+  typescript: {
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
+    alt: 'TypeScript',
+    title: 'TypeScript',
+  },
+  nextjs: {
+    src: 'https://img.icons8.com/?size=100&id=yUdJlcKanVbh&format=png&color=000000',
+    alt: 'Next.js',
+    title: 'Next.js',
+  },
+  tailwindcss: {
+    src: 'https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000',
+    alt: 'Tailwind.css',
+    title: 'Tailwind.css',
+  },
+  swagger: {
+    src: 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/swagger.webp',
+    alt: 'Swagger',
+    title: 'Swagger',
+  },
+};
+const projects = [
+  {
+    name: 'Nearvet',
+    banner: nearvet,
+    description: t('Projects.nearvet'),
+    technologiesUsed: [technologies.typescript, technologies.nestjs, technologies.postgresql, technologies.nextjs, technologies.tailwindcss, technologies.swagger],
+    href: 'https://near-vet-front-git-main-teamhvets-projects.vercel.app/',
+  },
+  {
+    name: 'Logistica Punilla',
+    banner: backend,
+    description: t('Projects.punilla'),
+    technologiesUsed: [technologies.typescript, technologies.nestjs, technologies.postgresql, technologies.swagger],
+    href: '#',
+  },
+  {
+    name: 'Lavariso',
+    banner: lavariso,
+    description: t('Projects.lavariso'),
+    technologiesUsed: [technologies.react, technologies.mysql, technologies.express, technologies.nodejs],
+    href: '#',
+  },
+  {
+    name: 'SucurApp',
+    banner: sucurapp,
+    description: t('Projects.sucurapp'),
+    technologiesUsed: [technologies.react, technologies.mysql, technologies.express, technologies.nodejs],
+    href: '#',
+  },
+
+  {
+    name: 'Calu',
+    banner: calu,
+    description: t('Projects.calu'),
+    technologiesUsed: [technologies.react, technologies.firebase],
+    href: 'https://calu-mkt.com/',
+  },
+];
+---
+
+<div id='projects' class='h-screen pt-11'>
+  <h2 class='text-7xl text-center rillosta'>{t('Projects.title')}</h2>
+
+  <div class='projects flex flex-wrap justify-center gap-4 pt-10'>
+    {
+      projects.map((project) => (
+        <div class='card w-80 h-56 overflow-hidden rounded-3xl bg-black relative'>
+          <Image class='object-cover object-center w-80 h-40 bg-black' loading='lazy' src={project.banner} alt={project.name} />
+
+          <div class='card-body bg-cyan-950 absolute flex flex-col h-full w-full transition delay-150 duration-300 ease-in-out top-0 translate-y-2/3 pt-3.5 hover:translate-y-6'>
+            <h2 class='card-title absolute block w-max top-0 pt-1 pr-5 bg-[#0008] backdrop-blur-sm z-10 -translate-y-full rounded-e-2xl'>{project.name}</h2>
+
+            <div class='description pt-0 pr-[22px] flex w-full h-4/5 flex-col gap-2.5 text-ellipsis overflow-hidden'>
+              <p>{project.description}</p>
+            </div>
+
+            <div class='skills flex gap-2.5 text-5xl justify-between'>
+              <div class='flex h-20'>
+                {project.technologiesUsed.map((tech) => (
+                  <img class='w-9 h-9' src={tech.src} alt={tech.alt} loading='lazy' title={tech.title} />
+                ))}
+              </div>
+
+              <a href={project.href} target='_blank'>
+                <img class='w-7' loading='lazy' src='https://img.icons8.com/?size=100&id=1lsm7jKm7MeX&format=png&color=ffffff' alt='link' />
+              </a>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

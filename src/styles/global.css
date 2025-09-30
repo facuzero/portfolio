@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@keyframes emerald-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@font-face {
+  font-family: 'rillosta';
+  src: url('/fonts/Rillosta.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'pochita';
+  src: url('/fonts/Pochita.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+#chk:checked + label #theme-toggle-ball {
+  transform: translateX(100%);
+}
+
+.animate-carousel {
+  animation: carousel 20s linear infinite;
+}
+.animate-emerald-gradient {
+  background: linear-gradient(90deg, #059669, #6ee7b7, #059669);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: emerald-gradient 3s ease-in-out infinite;
+}
+
+.animate-frontend-gradient {
+  background: linear-gradient(90deg, #f59e42, #ef4444, #fbbf24, #f59e42); /* naranja, rojo, amarillo */
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: emerald-gradient 3s ease-in-out infinite;
+}
+.animate-backend-gradient {
+  background: linear-gradient(90deg, #566275, #6b68c2, #0f172a, #1e293b); /* azul oscuro, púrpura oscuro, gris muy oscuro */
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: emerald-gradient 3s ease-in-out infinite;
+}
+
+.rillosta {
+    font-family: 'rillosta', sans-serif;
+  }
+
+.pochita {
+  font-family: 'pochita', sans-serif;
+}

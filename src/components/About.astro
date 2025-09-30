@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { Image } from 'astro:assets';
+import programando from 'public/images/programando.png';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div id='about' class='grid grid-cols-2 w-full gap-32 h-screen pr-16 pt-36'>
+  <Image class='rounded-full pl-5' src={programando} alt='programando' />
+  <div>
+    <h2 class='text-7xl text-center rillosta'>{t('about.title')}</h2>
+    <p class='text-3xl pochita'>{t('hero.description')}</p>
+  </div>
+</div>
