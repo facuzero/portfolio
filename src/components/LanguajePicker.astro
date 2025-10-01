@@ -1,8 +1,6 @@
 ---
 import { getLangFromUrl } from '@/i18n/utils';
-const currentPath = Astro.url.pathname;
 const lang = getLangFromUrl(Astro.url);
-const basePath = currentPath.replace(`/portfolio/${lang}`, '');
 ---
 
 <div class='h-7 w-36 cursor-pointer flex justify-end' onclick="document.getElementById('sel').click() ">
@@ -14,7 +12,7 @@ const basePath = currentPath.replace(`/portfolio/${lang}`, '');
       clip-rule='evenodd'></path>
   </svg>
   <select name='' id='sel' class='cursor-pointer text-2xl text-blue-200 bg-transparent' onchange='window.location.href=this.value'>
-    <option value={`/${basePath}`} selected={lang === 'es'}>Español</option>
-    <option value={`/${basePath}`} selected={lang === 'en'}>English</option>
+    <option value='/portfolio/es' selected={lang === 'es'}>Español</option>
+    <option value='/portfolio/en' selected={lang === 'en'}>English</option>
   </select>
 </div>
