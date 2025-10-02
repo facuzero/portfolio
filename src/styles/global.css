@@ -1,4 +1,7 @@
 @import "tailwindcss";
+html{
+  @apply scroll-smooth;
+}
 @keyframes emerald-gradient {
   0%, 100% {
     background-position: 0% 50%;

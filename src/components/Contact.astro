@@ -3,6 +3,10 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+/* const cvEs = new URL('/docs/CV Diaz Facundo 2025.pdf', Astro.site).toString();
+const cvEn = new URL('/docs/CV Eng-Diaz Facundo 2025.pdf', Astro.site).toString(); */
+const cvEs = `${import.meta.env.BASE_URL}docs/CV Diaz Facundo 2025.pdf`;
+const cvEn = `${import.meta.env.BASE_URL}docs/CV Eng-Diaz Facundo 2025.pdf`;
 ---
 
 <footer id='contact' class='w-full bg-[#131313] flex justify-between items-center flex-wrap pt-4 pr-16 h-auto'>
@@ -21,7 +25,7 @@ const t = useTranslations(lang);
       <a href='https://www.linkedin.com/in/facundo-diaz1995/' target='_blank' rel='nofollow noreferrer noopener'>
         <img class='skill__icon LinkedIn w-8 h-8' src='https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/linkedin.webp' />
       </a>
-      <a href={`${lang === 'es' ? '/src/docs/CV%20Diaz%20Facundo%202025.pdf' : '/src/docs/CV%20Eng-Diaz%20Facundo%202025.pdf'}`} target='_blank' rel='nofollow noreferrer noopener'>
+      <a href={`${lang === 'es' ? `${cvEs}` : `${cvEn}`}`} target='_blank' rel='nofollow noreferrer noopener'>
         <img title={t('Contact.resume')} class='skill__icon CV w-8 h-8' src='https://img.icons8.com/?size=100&id=45588&format=png&color=ffffff' alt='Resume' />
       </a>
     </div>
