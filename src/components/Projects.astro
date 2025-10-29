@@ -6,61 +6,80 @@ import sucurapp from 'public/images/sucurapp.png';
 import lavariso from 'public/images/lavariso.png';
 import backend from 'public/images/backend.jpg';
 import nearvet from 'public/images/nearvet.webp';
+import swaggerLogo from 'public/images/skills/swagger.webp';
+import htmlLogo from 'public/images/skills/html5-original.svg';
+import cssLogo from 'public/images/skills/css3-original.svg';
+import tsLogo from 'public/images/skills/typescript-original.svg';
+import nextJsLogo from 'public/images/skills/nextjs.png';
+import jsLogo from 'public/images/skills/javascript.svg';
+import reactLogo from 'public/images/skills/react.png';
+import astroLogo from 'public/images/skills/astro.png';
+import vueLogo from 'public/images/skills/vue.png';
+import tailwindcssLogo from 'public/images/skills/tailwindcss.png';
+import expressLogo from 'public/images/skills/express.png';
+import nodejsLogo from 'public/images/skills/nodejs.png';
+import nestjsLogo from 'public/images/skills/nestjs.png';
+import sqlLogo from 'public/images/skills/sql.png';
+import postgresqlLogo from 'public/images/skills/postgresql.png';
+import mysqlLogo from 'public/images/skills/mysql.png';
+import mongodbLogo from 'public/images/skills/mongodb.png';
+import firebaseLogo from 'public/images/skills/firebase.png';
+import dockerLogo from 'public/images/skills/docker.png';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const technologies = {
   react: {
-    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg',
+    src: reactLogo,
     alt: 'React',
     title: 'React',
   },
   firebase: {
-    src: 'https://img.icons8.com/?size=100&id=62452&format=png&color=000000',
+    src: firebaseLogo,
     alt: 'Firebase',
     title: 'Firebase',
   },
   mysql: {
-    src: 'https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000',
+    src: mysqlLogo,
     alt: 'MySQL',
     title: 'MySQL',
   },
   postgresql: {
-    src: 'https://img.icons8.com/?size=100&id=38561&format=png&color=000000',
+    src: postgresqlLogo,
     alt: 'PostgreSQL',
     title: 'PostgreSQL',
   },
   nodejs: {
-    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg',
+    src: nodejsLogo,
     alt: 'Node.js',
     title: 'Node.js',
   },
   express: {
-    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg',
+    src: expressLogo,
     alt: 'Express.js',
     title: 'Express.js',
   },
   nestjs: {
-    src: 'https://img.icons8.com/?size=100&id=9ESZMOeUioJS&format=png&color=000000',
+    src: nestjsLogo,
     alt: 'NestJS',
     title: 'NestJS',
   },
   typescript: {
-    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
+    src: tsLogo,
     alt: 'TypeScript',
     title: 'TypeScript',
   },
   nextjs: {
-    src: 'https://img.icons8.com/?size=100&id=yUdJlcKanVbh&format=png&color=000000',
+    src: nextJsLogo,
     alt: 'Next.js',
     title: 'Next.js',
   },
   tailwindcss: {
-    src: 'https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000',
+    src: tailwindcssLogo,
     alt: 'Tailwind.css',
     title: 'Tailwind.css',
   },
   swagger: {
-    src: 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/swagger.webp',
+    src: swaggerLogo,
     alt: 'Swagger',
     title: 'Swagger',
   },
@@ -94,7 +113,6 @@ const projects = [
     technologiesUsed: [technologies.react, technologies.mysql, technologies.express, technologies.nodejs],
     href: '#',
   },
-
   {
     name: 'Calu',
     banner: calu,
@@ -105,36 +123,65 @@ const projects = [
 ];
 ---
 
-<div id='projects' class='h-screen pt-11'>
-  <h2 class='text-7xl text-center rillosta'>{t('Projects.title')}</h2>
+<div id='projects' class='w-full py-12 px-6 md:py-20 md:px-12'>
+  <div class='max-w-7xl mx-auto'>
+    <h2 class='text-4xl md:text-6xl text-center rillosta mb-8'>{t('Projects.title')}</h2>
 
-  <div class='projects flex flex-wrap justify-center gap-4 pt-10'>
-    {
-      projects.map((project) => (
-        <div class='card w-80 h-56 overflow-hidden rounded-3xl bg-black relative'>
-          <Image class='object-cover object-center w-80 h-40 bg-black' loading='lazy' src={project.banner} alt={project.name} />
+    <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+      {projects.map((project) => (
+        <article class='group card bg-black rounded-2xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:-translate-y-1'>
+          <Image
+            src={project.banner}
+            alt={project.name}
+            class='w-full h-40 sm:h-44 md:h-48 object-cover'
+            loading={project === projects[0] ? 'eager' : 'lazy'}
+            inferSize
+          />
 
-          <div class='card-body bg-cyan-950 absolute flex flex-col h-full w-full transition delay-150 duration-300 ease-in-out top-0 translate-y-2/3 pt-3.5 hover:translate-y-6'>
-            <h2 class='card-title absolute block w-max top-0 pt-1 pr-5 bg-[#0008] backdrop-blur-sm z-10 -translate-y-full rounded-e-2xl'>{project.name}</h2>
+          <div class='p-4 bg-cyan-950 relative'>
+            <h3 class='text-lg md:text-xl font-semibold text-white rillosta mb-2'>{project.name}</h3>
 
-            <div class=' text-gray-100 description pt-0 pr-[22px] flex w-full h-4/5 flex-col gap-2.5 text-ellipsis overflow-hidden'>
-              <p class=''>{project.description}</p>
-            </div>
+            <p class='text-sm text-gray-200 pochita mb-4 line-clamp-3'>{project.description}</p>
 
-            <div class='skills flex gap-2.5 text-5xl justify-between'>
-              <div class='flex h-20'>
+            <div class='flex items-center justify-between'>
+              <div class='flex items-center gap-3' aria-hidden='false'>
                 {project.technologiesUsed.map((tech) => (
-                  <img class='w-9 h-9' src={tech.src} alt={tech.alt} loading='lazy' title={tech.title} />
+                  <img
+                    class='w-7 h-7 object-contain'
+                    src={tech.src.src}
+                    alt={tech.alt}
+                    title={tech.title}
+                    loading='lazy'
+                    width='28'
+                    height='28'
+                  />
                 ))}
               </div>
 
-              <a href={project.href} target='_blank'>
-                <img class='w-7' loading='lazy' src='https://img.icons8.com/?size=100&id=1lsm7jKm7MeX&format=png&color=ffffff' alt='link' />
-              </a>
+              <div class='flex items-center gap-3'>
+                {project.href && project.href !== '#' ? (
+                  <a
+                    href={project.href}
+                    class='inline-flex items-center justify-center w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 transition-colors'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={`Open ${project.name}`}
+                  >
+                    <img class='w-5' loading='lazy' src='https://img.icons8.com/?size=100&id=1lsm7jKm7MeX&format=png&color=ffffff' alt='link' />
+                  </a>
+                ) : (
+                  <button class='inline-flex items-center justify-center w-9 h-9 rounded-md bg-white/5 text-gray-300 cursor-not-allowed' disabled aria-hidden='true'>
+                    <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4' viewBox='0 0 24 24' fill='none' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 14l2-2m0 0l2-2m-2 2V6'></path></svg>
+                  </button>
+                )}
+              </div>
             </div>
+
+            <!-- reveal overlay on hover for keyboard users -->
+            <div class='absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors pointer-events-none' aria-hidden='true'></div>
           </div>
-        </div>
-      ))
-    }
+        </article>
+      ))}
+    </div>
   </div>
 </div>

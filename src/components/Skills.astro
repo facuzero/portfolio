@@ -1,75 +1,106 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { Image } from 'astro:assets';
+import htmlLogo from 'public/images/skills/html5-original.svg';
+import cssLogo from 'public/images/skills/css3-original.svg';
+import tsLogo from 'public/images/skills/typescript-original.svg';
+import nextJsLogo from 'public/images/skills/nextjs.png';
+import jsLogo from 'public/images/skills/javascript.svg';
+import reactLogo from 'public/images/skills/react.png';
+import astroLogo from 'public/images/skills/astro.png';
+import vueLogo from 'public/images/skills/vue.png';
+import tailwindcssLogo from 'public/images/skills/tailwindcss.png';
+import expressLogo from 'public/images/skills/express.png';
+import nodejsLogo from 'public/images/skills/nodejs.png';
+import nestjsLogo from 'public/images/skills/nestjs.png';
+import sqlLogo from 'public/images/skills/sql.png';
+import postgresqlLogo from 'public/images/skills/postgresql.png';
+import mysqlLogo from 'public/images/skills/mysql.png';
+import mongodbLogo from 'public/images/skills/mongodb.png';
+import firebaseLogo from 'public/images/skills/firebase.png';
+import dockerLogo from 'public/images/skills/docker.png';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// organiza arrays para mapear y duplicar (efecto infinito)
+const frontend = [
+  { src: htmlLogo, alt: 'HTML5' },
+  { src: cssLogo, alt: 'CSS3' },
+  { src: jsLogo, alt: 'JavaScript' },
+  { src: tsLogo, alt: 'TypeScript' },
+  { src: reactLogo, alt: 'React' },
+  { src: astroLogo, alt: 'Astro' },
+  { src: vueLogo, alt: 'Vue.js' },
+  { src: nextJsLogo, alt: 'Next.js' },
+  { src: tailwindcssLogo, alt: 'Tailwind.css' },
+];
+
+const backend = [
+  { src: nodejsLogo, alt: 'Node.js' },
+  { src: expressLogo, alt: 'Express.js' },
+  { src: nestjsLogo, alt: 'NestJS' },
+  { src: sqlLogo, alt: 'SQL' },
+  { src: postgresqlLogo, alt: 'PostgreSQL' },
+  { src: mysqlLogo, alt: 'MySQL' },
+  { src: mongodbLogo, alt: 'MongoDB' },
+  { src: firebaseLogo, alt: 'Firebase' },
+  { src: dockerLogo, alt: 'Docker' },
+];
 ---
 
-<div id='skills' class='grid grid-cols-2 w-full gap-32 h-screen pt-16'>
-  <div class='h-72'>
-    <h2 class='text-7xl text-center rillosta'>{t('skills.title')}</h2>
-    <p class='text-3xl pl-5 pochita'>{t('skills.description')}</p>
-  </div>
-  <div class='w-auto h-1/2 rounded-2xl bg-indigo-900 mr-4 lg:h-3/5 xl:h-11/12 not-lg:h-3/4'>
-    <div class='rounded-t-2xl h-8 w-full bg-gray-600 flex'>
-      <div class='rounded-4xl m-1 mt-2 ml-1 bg-red-500 w-4 h-4'></div>
-      <div class='rounded-4xl m-1 mt-2 ml-1 bg-yellow-500 w-4 h-4'></div>
-      <div class='rounded-4xl m-1 mt-2 ml-1 bg-green-500 w-4 h-4'></div>
+<div id='skills' class='w-full py-12 px-6 md:py-16 md:px-12'>
+  <div class='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start'>
+    <div class=''>
+      <h2 class='text-5xl md:text-7xl rillosta text-center md:text-left'>{t('skills.title')}</h2>
+      <p class='mt-4 text-lg md:text-2xl pochita text-gray-700 dark:text-gray-300 max-w-xl mx-auto md:mx-0'>
+        {t('skills.description')}
+      </p>
     </div>
-    <span class='text-green-500'>facundoDiaz@root:</span>
-    <span class='text-blue-500'>~$</span>
-    <span class='text-cyan-500'>.powerups</span>
-    <!-- <h3 class='animate-emerald-gradient text-2x1 font-bold text-center pt-1'>{t('skills.title')}</h3> -->
-    <div class='animate-frontend-gradient text-2x1 font-bold text-center pt-4 xl:pt-14'>
-      <h4>Front-End</h4>
-      <div class='overflow-hidden w-full pt-4'>
-        <div class='flex gap-4 pt-4 animate-carousel min-w-max'>
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg' alt='HTML5' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg' alt='CSS3' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' alt='JavaScript' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg' alt='TypeScript' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' alt='React' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/astro/astro-original.svg' alt='Astro' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg' alt='Vue.js' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=yUdJlcKanVbh&format=png&color=000000' alt='Next.js' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000' alt='Tailwind.js' />
-          <!--  -->
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg' alt='HTML5' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg' alt='CSS3' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' alt='JavaScript' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg' alt='TypeScript' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' alt='React' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/astro/astro-original.svg' alt='Astro' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg' alt='Vue.js' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=yUdJlcKanVbh&format=png&color=000000' alt='Next.js' />
-          <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000' alt='Tailwind.js' />
-        </div>
+
+    <div class='w-full max-w-3xl mx-auto md:mx-0 rounded-2xl bg-indigo-900 overflow-hidden relative'>
+      <!-- ventana superior (botones) -->
+      <div class='rounded-t-2xl h-10 w-full bg-gray-600 flex items-center px-3 gap-2'>
+        <span class='block w-3 h-3 rounded-full bg-red-400'></span>
+        <span class='block w-3 h-3 rounded-full bg-yellow-400'></span>
+        <span class='block w-3 h-3 rounded-full bg-green-400'></span>
+        <div class='ml-auto text-sm text-gray-200 pochita pr-2'>.powerups</div>
       </div>
-      <div class='animate-backend-gradient text-2x1 font-bold text-center pt-4 xl:pt-14'>
-        <h4>Back-End</h4>
-        <div class='overflow-hidden w-full pt-4'>
-          <div class='flex gap-4 pt-4 animate-carousel min-w-max'>
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' alt='Node.js' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg' alt='Express.js' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=9ESZMOeUioJS&format=png&color=000000' alt='NestJS' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=wDKHrGlFU936&format=png&color=000000' alt='SQL' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=38561&format=png&color=000000' alt='PostgreSQL' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000' alt='MySQL' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=tBBf3P8HL0vR&format=png&color=000000' alt='MongoDB' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=62452&format=png&color=000000' alt='Firebase' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000' alt='Docker' />
-            <!--  -->
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' alt='Node.js' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg' alt='Express.js' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=9ESZMOeUioJS&format=png&color=000000' alt='NestJS' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=wDKHrGlFU936&format=png&color=000000' alt='SQL' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=38561&format=png&color=000000' alt='PostgreSQL' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000' alt='MySQL' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=tBBf3P8HL0vR&format=png&color=000000' alt='MongoDB' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=62452&format=png&color=000000' alt='Firebase' />
-            <Image inferSize={true} class='lg:w-12 max-w-20 xl:w-20' src='https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000' alt='Docker' />
-          </div>
+
+      <div class='p-6'>
+        <div class='text-sm text-gray-200 mb-4'>
+          <span class='text-green-400'>facundoDiaz@root</span>
+          <span class='text-blue-300 ml-2'>~$</span>
+          <span class='text-cyan-300 ml-2'>skills --list</span>
         </div>
+
+        <!-- FRONTEND -->
+        <section class='mb-8'>
+          <h3 class='text-xl font-semibold text-white pochita mb-3 animate-frontend-gradient inline-block px-2 py-1 rounded-md'>Front-End</h3>
+
+          <div class='overflow-hidden w-full'>
+            <div class='flex gap-6 items-center animate-carousel min-w-max'>
+              {frontend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain' src={item.src} alt={item.alt} />)}
+              {/* duplicado para loop infinito (aria-hidden para lectores) */}
+              <div aria-hidden='true' class='flex gap-6 items-center'>
+                {frontend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain opacity-90' src={item.src} alt={item.alt} />)}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BACKEND -->
+        <section>
+          <h3 class='text-xl font-semibold text-white pochita mb-3 animate-backend-gradient inline-block px-2 py-1 rounded-md'>Back-End</h3>
+
+          <div class='overflow-hidden w-full'>
+            <div class='flex gap-6 items-center animate-carousel min-w-max'>
+              {backend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain' src={item.src} alt={item.alt} />)}
+              <div aria-hidden='true' class='flex gap-6 items-center'>
+                {backend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain opacity-90' src={item.src} alt={item.alt} />)}
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>

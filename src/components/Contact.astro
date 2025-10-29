@@ -3,49 +3,79 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-/* const cvEs = new URL('/docs/CV Diaz Facundo 2025.pdf', Astro.site).toString();
-const cvEn = new URL('/docs/CV Eng-Diaz Facundo 2025.pdf', Astro.site).toString(); */
-const cvEs = `${import.meta.env.BASE_URL}/docs/CV Diaz Facundo 2025.pdf`;
-const cvEn = `${import.meta.env.BASE_URL}/docs/CV Eng-Diaz Facundo 2025.pdf`;
+
+// encode paths (evita problemas con espacios)
+const base = import.meta.env.BASE_URL || '/';
+const cvEs = encodeURI(`${base}docs/CV Diaz Facundo 2025.pdf`);
+const cvEn = encodeURI(`${base}docs/CV Eng-Diaz Facundo 2025.pdf`);
 ---
 
-<footer id='contact' class='w-full bg-[#131313] flex justify-between items-center flex-wrap pt-4 pr-16 h-auto'>
-  <div class='footer__container flex flex-col items-start gap-8'>
-    <a href='#' class='profile flex rounded-[50%] items-center gap-6'>
-      <div class='img__container rounded-[50%] overflow-hidden transition-transform duration-300 ml-5'>
-        <img
-          class='header__img w-11 h-11'
-          src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FC4E03AQFUtWKOn67htw%2Fprofile-displayphoto-shrink_200_200%2Fprofile-displayphoto-shrink_200_200%2F0%2F1634309529096%3Fe%3D2147483647%26v%3Dbeta%26t%3D_-cQbsxgTCLOSTXyS4iHFfgLKCdwRNmK2kfDe7Tdk68&f=1&nofb=1&ipt=d3afd5ff7d44a32ce5dbde1d43e686fd03ed6c25c128ca09a973fe8d57a3e97a'
-          alt='Facundo Diaz'
-        />
-      </div>
-      <h3 class='color__gradiente header__title pochita text-3xl text-gray-100'>Facundo Diaz</h3>
-    </a>
-    <div class='icons__container w-40 flex justify-start gap-5 items-start mx-5'>
-      <a href='https://www.linkedin.com/in/facundo-diaz1995/' target='_blank' rel='nofollow noreferrer noopener'>
-        <img class='skill__icon LinkedIn w-8 h-8' src='https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/linkedin.webp' />
-      </a>
-      <a href={`${lang === 'es' ? `${cvEs}` : `${cvEn}`}`} target='_blank' rel='nofollow noreferrer noopener'>
-        <img title={t('Contact.resume')} class='skill__icon CV w-8 h-8' src='https://img.icons8.com/?size=100&id=45588&format=png&color=ffffff' alt='Resume' />
+<footer id='contact' role='contentinfo' class='w-full bg-[#131313] text-gray-100 py-8 px-6 md:px-12'>
+  <div class='max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-6'>
+    <div class='flex items-center gap-4 md:gap-6'>
+      <a href='#' class='profile flex items-center gap-4 group' aria-label='Facundo Diaz home'>
+        <div class='img__container rounded-full overflow-hidden transition-transform duration-300 group-hover:scale-105'>
+          <img
+            class='header__img w-12 h-12 object-cover'
+            src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FC4E03AQFUtWKOn67htw%2Fprofile-displayphoto-shrink_200_200%2Fprofile-displayphoto-shrink_200_200%2F0%2F1634309529096%3Fe%3D2147483647%26v%3Dbeta%26t%3D_-cQbsxgTCLOSTXyS4iHFfgLKCdwRNmK2kfDe7Tdk68&f=1&nofb=1&ipt=d3afd5ff7d44a32ce5dbde1d43e686fd03ed6c25c128ca09a973fe8d57a3e97a'
+            alt='Facundo Diaz'
+            loading='eager'
+            width='48'
+            height='48'
+          />
+        </div>
+
+        <div class='flex flex-col leading-tight'>
+          <h3 class='pochita text-2xl'>Facundo Diaz</h3>
+          <span class='text-sm text-gray-300'>Fullstack Developer</span>
+        </div>
       </a>
     </div>
-  </div>
-  <aside class='footer__links'>
-    <ul>
-      <li>
-        <a class='footer__link flex items-center justify-start gap-4' href='mailto:facuzero_95@hotmail.com'>
-          <span>
-            <img src='https://img.icons8.com/?size=100&id=86840&format=png&color=ffffff' alt='mail to' width='27' height='27' style='color: #dcd8fc' />
-          </span>
-          <span class='text-2xl pochita text-gray-100'>facuzero_95@hotmail.com</span>
+
+    <div class='flex flex-col md:flex-row items-center md:items-start gap-6 w-full md:w-auto justify-between'>
+      <div class='icons__container flex items-center gap-4'>
+        <a href='https://www.linkedin.com/in/facundo-diaz1995/' target='_blank' rel='nofollow noreferrer noopener' class='rounded-md p-1 hover:scale-110 transition-transform' aria-label='LinkedIn'>
+          <img class='w-8 h-8' src='https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/linkedin.webp' alt='LinkedIn' loading='lazy' />
         </a>
-      </li>
-      <li>
-        <a class='footer__link flex items-center justify-start gap-4' href='https://github.com/facuzero' target='_blank' rel='nofollow noreferrer noopener'
-          ><span><img src='https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/github-light.webp' width='27' height='27' style='color: #dcd8fc' /></span>
-          <span class='text-2xl pochita text-gray-100'>@facuzero</span></a
+
+        <a
+          href={lang === 'es' ? cvEs : cvEn}
+          target='_blank'
+          rel='nofollow noreferrer noopener'
+          class='rounded-md p-1 hover:scale-110 transition-transform flex items-center'
+          aria-label={t('Contact.resume')}
         >
-      </li>
-    </ul>
-  </aside>
+          <img title={t('Contact.resume')} class='skill__icon CV w-8 h-8' src='https://img.icons8.com/?size=100&id=45588&format=png&color=ffffff' alt={t('Contact.resume')} loading='lazy' />
+        </a>
+      </div>
+
+      <div class='contact__links mt-2 md:mt-0'>
+        <ul class='flex flex-col md:flex-row md:gap-6 gap-3'>
+          <li>
+            <a class='footer__link flex items-center gap-3 rounded-md hover:bg-white/5 px-3 py-2 transition-colors' href='mailto:facuzero_95@hotmail.com' aria-label='Send email'>
+              <img src='https://img.icons8.com/?size=100&id=86840&format=png&color=ffffff' alt='mail' width='24' height='24' />
+              <span class='pochita text-lg'>facuzero_95@hotmail.com</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class='footer__link flex items-center gap-3 rounded-md hover:bg-white/5 px-3 py-2 transition-colors'
+              href='https://github.com/facuzero'
+              target='_blank'
+              rel='nofollow noreferrer noopener'
+              aria-label='GitHub'
+            >
+              <img src='https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/github-light.webp' width='24' height='24' alt='github' />
+              <span class='pochita text-lg'>@facuzero</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class='max-w-6xl mx-auto mt-6 border-t border-white/10 pt-6 text-center text-sm text-gray-400'>
+    © {new Date().getFullYear()} Facundo Diaz — All rights reserved
+  </div>
 </footer>

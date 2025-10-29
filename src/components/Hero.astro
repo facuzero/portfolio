@@ -6,17 +6,17 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div id='#' class='grid grid-cols-2 w-full gap-32 h-screen pt-32'>
-  <div class='flex items-center flex-col justify-center gap-8'>
-    <h1 class='text-8xl text-center w-3xl pl-24 font-sans rillosta'>Fullstack Developer</h1>
-    <p class='text-4xl text-center pochita'>{t('hero.presentation')}</p>
+<div id='#' class='flex flex-col-reverse w-full md:min-h-screen md:gap-32 md:grid md:grid-cols-2 md:pt-32'>
+  <div class='flex flex-col items-center md:items-start text-center justify-center gap-8'>
+    <h1 class='text-5xl md:text-8xl text-center w-3xl md:text-start font-sans rillosta'>Fullstack Developer</h1>
+    <p class='text-3xl md:text-4xl text-center pochita'>{t('hero.presentation')}</p>
   </div>
 
-  <div class='content-center'>
+  <div class='flex justify-center md:justify-end'>
     <Image
       inferSize={true}
       loading='eager'
-      class='rounded-full w-96 mr-4'
+      class='rounded-full md:w-96 md:h-96 md:self-center mr-4'
       src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FC4E03AQFUtWKOn67htw%2Fprofile-displayphoto-shrink_200_200%2Fprofile-displayphoto-shrink_200_200%2F0%2F1634309529096%3Fe%3D2147483647%26v%3Dbeta%26t%3D_-cQbsxgTCLOSTXyS4iHFfgLKCdwRNmK2kfDe7Tdk68&f=1&nofb=1&ipt=d3afd5ff7d44a32ce5dbde1d43e686fd03ed6c25c128ca09a973fe8d57a3e97a'
       alt='Imagen de perfilongis'
     />
