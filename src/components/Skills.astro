@@ -79,10 +79,10 @@ const backend = [
 
           <div class='overflow-hidden w-full'>
             <div class='flex gap-6 items-center animate-carousel min-w-max'>
-              {frontend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain' src={item.src} alt={item.alt} />)}
+              {frontend.map((item) => <Image inferSize class='w-12 h-12 object-contain shrink-0' src={item.src} alt={item.alt} />)}
               {/* duplicado para loop infinito (aria-hidden para lectores) */}
               <div aria-hidden='true' class='flex gap-6 items-center'>
-                {frontend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain opacity-90' src={item.src} alt={item.alt} />)}
+                {frontend.map((item) => <Image inferSize class='w-12 h-12 object-contain opacity-90 shrink-0' src={item.src} alt={item.alt} />)}
               </div>
             </div>
           </div>
@@ -94,9 +94,9 @@ const backend = [
 
           <div class='overflow-hidden w-full'>
             <div class='flex gap-6 items-center animate-carousel min-w-max'>
-              {backend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain' src={item.src} alt={item.alt} />)}
+              {backend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain shrink-0' src={item.src} alt={item.alt} />)}
               <div aria-hidden='true' class='flex gap-6 items-center'>
-                {backend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain opacity-90' src={item.src} alt={item.alt} />)}
+                {backend.map((item) => <Image inferSize loading='eager' class='w-12 h-12 object-contain opacity-90 shrink-0' src={item.src} alt={item.alt} />)}
               </div>
             </div>
           </div>

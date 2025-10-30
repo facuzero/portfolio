@@ -36,7 +36,11 @@ html{
 }
 
 .animate-carousel {
-  animation: carousel 20s linear infinite;
+  animation: carousel 10s linear infinite;
+  will-change: transform;
+  display:flex;
+  align-items: center;
+  flex-wrap:nowrap;
 }
 .animate-emerald-gradient {
   background: linear-gradient(90deg, #059669, #6ee7b7, #059669);
